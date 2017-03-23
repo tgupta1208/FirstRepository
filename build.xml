@@ -9,6 +9,7 @@
 		<mkdir dir="${basedir}/test-output"/>
 		<mkdir dir="${basedir}/test-output/Screenshots"/>
 	</target>
+	
                 <target name="compile" depends="init" > 				
 				        <javac srcdir="src"   destdir="bin"  classpathref="classpath"/>
 				</target>
