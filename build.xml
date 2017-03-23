@@ -1,0 +1,32 @@
+<project basedir="."  name="ActTimeFrameWork">
+	<path id="classpath">
+			<pathelement path="bin"/>
+			<fileset dir="jars"/>
+	</path>
+	
+	<target name="init">
+		<delete dir="${basedir}/test-output"/>
+		<mkdir dir="${basedir}/test-output"/>
+		<mkdir dir="${basedir}/test-output/Screenshots"/>
+	</target>
+                <target name="compile" depends="init" > 				
+				        <javac srcdir="src"   destdir="bin"  classpathref="classpath"/>
+				</target>
+				
+				<target name="run" depends="compile" >
+					        <java  classname="org.testng.TestNG" args="testng.xml" classpathref="classpath"/>
+				</target>
+					
+				<target name="report" depends="run" > 
+						    <xslt in="./test-output/testng-results.xml" style="./testng-results.xsl" out="./testng-xslt/testng-xslt.html" processor="SaxonLiaison" >
+						    <param expression="${basedir}/testng-xslt" name="testNgXslt.outputDir" />
+						    <classpath refid="classpath"/>
+						    </xslt>
+			    </target>
+	<target name="zipresults" depends="report">
+		<tstamp>
+			<format  property="timestamp" pattern="dd-MM-yyyy-HH-mm-ss"/>
+		</tstamp>
+		<zip basedir="${basedir}/test-output" destfile="${basedir}/Results/Resultsof-${timestamp}.zip"/>
+	</target>
+	</project>

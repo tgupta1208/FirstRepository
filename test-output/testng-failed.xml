@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" parallel="none">
+  <test name="Test(failed)" parallel="none">
+    <classes>
+      <class name="com.acttime.reporttest.ReportTest">
+        <methods>
+          <include name="createReportTest"/>
+          <include name="configBeforeMts"/>
+          <include name="configBeforeClass"/>
+          <include name="modifyReportTest"/>
+        </methods>
+      </class> <!-- com.acttime.reporttest.ReportTest -->
+      <class name="com.acttime.projectandcustomertest.ProjectAndCustomerTest">
+        <methods>
+          <include name="verifyCustomerDetailsInWebTableTest"/>
+          <include name="configBeforeMts"/>
+          <include name="configBeforeClass"/>
+          <include name="createCustomerTest"/>
+        </methods>
+      </class> <!-- com.acttime.projectandcustomertest.ProjectAndCustomerTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
